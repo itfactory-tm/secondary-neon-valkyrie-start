@@ -1,0 +1,39 @@
+<div class="scanlines"></div>
+
+<div id="sky-layer">
+  <div id="celestial-body"></div> <div class="stars"></div>
+</div>
+
+<div id="game-wrapper">
+  <div id="ui-layer">
+    <div class="hud-top">
+      <div class="hud-box">SCORE: <span id="score-display">0</span></div>
+      <div class="hud-box">LEVEL: <span id="level-display">1</span></div>
+      <div class="hud-box">PILOT: <span id="pilot-display">UNKNOWN</span></div>
+    </div>
+    
+    <div id="start-screen" class="panel">
+      <h1 class="glitch-text" data-text="NEON VALKYRIE">NEON VALKYRIE</h1>
+      <p class="subtitle">SECTOR 1: THE NEON HORIZON</p>
+      <button onclick="initSystem()">ENGAGE THRUSTERS</button>
+    </div>
+
+    <div id="level-gate" class="panel hidden">
+      <h2 style="color:var(--accent-color)">SECTOR COMPLETE</h2>
+      <p>HYPER-TUNNEL LOCKED.</p>
+      <p class="terminal-text">> ENTER DECRYPTED PASSKEY_</p>
+      <p class="hint">// HINT: Check the 'secureStorage' variable in JS //</p>
+      <input type="password" id="gate-pass" placeholder="ENTER PASSKEY">
+      <button onclick="attemptHyperJump()">INITIATE JUMP</button>
+      <p id="gate-msg"></p>
+    </div>
+
+    <div id="game-over" class="panel hidden">
+      <h2 style="color:red">SIGNAL LOST</h2>
+      <p>Final Score: <span id="final-score">0</span></p>
+      <button onclick="initSystem()">REBOOT SYSTEM</button>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas"></canvas>
+</div>
