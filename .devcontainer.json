@@ -1,0 +1,18 @@
+{
+  "name": "Neon Valkyrie Workshop",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.live-server",  // Microsoft's embedded preview extension
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "livePreview.defaultPreviewPath": "/index.html",
+        "livePreview.openPreviewTarget": "Embedded Preview", // Forces inside VS Code
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "postCreateCommand": "echo '🚀 READY! Right-click index.html and choose Show Preview.'"
+}
