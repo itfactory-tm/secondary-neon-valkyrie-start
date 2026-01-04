@@ -1,11 +1,9 @@
-/* --- STUDENT CUSTOMIZATION ZONE --- */
 :root {
-  /* LEVEL 1 THEME (The Good Guys) */
+  /* --- STUDENT CUSTOMIZATION ZONE --- */
   --bg-sky-1: linear-gradient(to bottom, #0b0014, #2a0e36);
   --sun-color-1: linear-gradient(to top, #ff0055, #ffcc00);
   --grid-color-1: #00f3ff; 
   
-  /* LEVEL 2 THEME (The Danger Zone) */
   --bg-sky-2: linear-gradient(to bottom, #000000, #220000);
   --sun-color-2: linear-gradient(to top, #550000, #ff0000); 
   --grid-color-2: #ff0000;
@@ -20,71 +18,49 @@ body {
   display: flex; justify-content: center; align-items: center; height: 100vh;
 }
 
-/* Background Handling */
 #sky-layer {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: var(--bg-sky-1); z-index: -1;
-  transition: background 2s ease; 
+  background: var(--bg-sky-1); z-index: -1; transition: background 2s ease; 
 }
 
-/* The Outrun Sun (CSS Art) */
 #celestial-body {
-  position: absolute; 
-  top: 15%; /* Sun at top 30% ish visual */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px; height: 200px;
-  background: var(--sun-color-1);
-  border-radius: 50%;
-  box-shadow: 0 0 60px var(--accent-color);
-  /* Horizontal stripes mask */
+  position: absolute; top: 15%; left: 50%; transform: translateX(-50%);
+  width: 200px; height: 200px; background: var(--sun-color-1);
+  border-radius: 50%; box-shadow: 0 0 60px var(--accent-color);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 50%, black 55%, transparent 55%, black 60%, transparent 60%, black 70%, transparent 70%, black 80%, transparent 80%, black 90%);
   mask-image: linear-gradient(to bottom, black 50%, transparent 50%, black 55%, transparent 55%, black 60%, transparent 60%, black 70%, transparent 70%, black 80%, transparent 80%, black 90%);
   transition: all 2s ease;
 }
 
-/* UI & Canvas */
 #game-wrapper {
   position: relative; width: 100%; max-width: 800px; height: 100%;
-  border-left: 1px solid rgba(255,255,255,0.1);
-  border-right: 1px solid rgba(255,255,255,0.1);
+  border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);
 }
 canvas { display: block; width: 100%; height: 100%; }
 
-/* Level 2 Overrides */
 body.level-2 #sky-layer { background: var(--bg-sky-2); }
-body.level-2 #celestial-body { 
-  background: var(--sun-color-2); 
-  box-shadow: 0 0 50px red;
-  width: 150px; height: 150px; 
-}
+body.level-2 #celestial-body { background: var(--sun-color-2); box-shadow: 0 0 50px red; width: 150px; height: 150px; }
 body.level-2 { --accent-color: #ff0000; }
 
-/* HUD & Panels */
 #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 .hud-top { display: flex; justify-content: space-between; padding: 20px; font-weight: bold; text-shadow: 0 0 10px var(--accent-color); color: var(--accent-color); }
 .panel {
-  pointer-events: auto; position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  pointer-events: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.95); border: 2px solid var(--accent-color);
-  padding: 40px; text-align: center; box-shadow: 0 0 30px var(--accent-color);
-  min-width: 300px;
+  padding: 40px; text-align: center; box-shadow: 0 0 30px var(--accent-color); min-width: 300px;
 }
 
 button {
-  background: transparent; border: 2px solid var(--accent-color);
-  color: var(--accent-color); padding: 15px; font-family: inherit;
-  cursor: pointer; font-weight: bold; margin-top: 10px; transition: 0.2s;
-  width: 100%;
+  background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);
+  padding: 15px; font-family: inherit; cursor: pointer; font-weight: bold; margin-top: 10px; transition: 0.2s; width: 100%;
 }
 button:hover { background: var(--accent-color); color: #000; }
-input { 
-  background: #111; border: 1px solid var(--accent-color); 
-  color: white; padding: 10px; width: 90%; margin-bottom: 10px; font-family: inherit;
-}
+input { background: #111; border: 1px solid var(--accent-color); color: white; padding: 10px; width: 90%; margin-bottom: 10px; font-family: inherit; }
 .hidden { display: none !important; }
+
 .scanlines {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
   background-size: 100% 4px; pointer-events: none; z-index: 10;
 }
+.glitch-text { font-size: 2.5rem; margin-bottom: 10px; color: #fff; text-shadow: 2px 2px var(--accent-color); }
